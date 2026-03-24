@@ -1134,6 +1134,69 @@
                 opacity: 1;
             }
         }
+        /* =============================================== */
+/* ✅ EMAIL TOAST NOTIFICATION STYLES */
+/* =============================================== */
+.email-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease;
+}
+.email-toast i {
+    font-size: 1.2rem;
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Style success modal buttons like Place Order button */
+.track-order-btn, 
+.close-success-btn {
+    background: linear-gradient(135deg, #ff6f2f 0%, #ff5500 100%);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 111, 47, 0.3);
+    margin: 10px;
+    min-width: 180px;
+}
+
+.track-order-btn:hover, 
+.close-success-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 111, 47, 0.4);
+}
+
+/* Optional: Make them side by side */
+.success-modal .success-icon {
+    font-size: 3rem;
+}
+
+.success-modal {
+    text-align: center;
+}
     </style>
 </head>
 <body>
