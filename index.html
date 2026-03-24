@@ -1197,31 +1197,39 @@
         opacity: 1;
     }
 }
-/* Style success modal buttons - smaller and inline */
-.track-order-btn, 
-.close-success-btn {
-    background: linear-gradient(135deg, #ff6f2f 0%, #ff5500 100%);
+/* =============================================== */
+/* ✅ EMAIL TOAST NOTIFICATION STYLES */
+/* =============================================== */
+.email-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #4caf50;
     color: white;
-    border: none;
-    padding: 8px 20px;        /* Smaller padding */
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.9rem;        /* Slightly smaller text */
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(255, 111, 47, 0.3);
-    margin: 5px;              /* Reduced margin */
-    display: inline-block;    /* Ensure they are inline */
-    min-width: 140px;         /* Smaller min-width */
+    padding: 12px 20px;
+    border-radius: 8px;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: slideIn 0.3s ease;
+}
+.email-toast i {
+    font-size: 1.2rem;
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-.track-order-btn:hover, 
-.close-success-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 111, 47, 0.4);
-}
-
-/* Make the buttons appear side by side inside the modal */
+/* Style success modal buttons - side by side, smaller, orange gradient */
 .success-modal {
     text-align: center;
 }
@@ -1233,7 +1241,34 @@
 }
 .success-modal .track-order-btn,
 .success-modal .close-success-btn {
-    margin: 5px 8px;
+    background: linear-gradient(135deg, #ff6f2f 0%, #ff5500 100%);
+    color: white;
+    border: none;
+    padding: 6px 16px;          /* Smaller padding */
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;         /* Smaller text */
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 111, 47, 0.3);
+    margin: 5px;
+    display: inline-block;       /* Keep them inline */
+    min-width: 120px;            /* Smaller min-width */
+}
+
+.success-modal .track-order-btn:hover,
+.success-modal .close-success-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 111, 47, 0.4);
+}
+
+/* Use flexbox for the button container to ensure side-by-side */
+.success-modal .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
     </style>
 </head>
@@ -1443,16 +1478,16 @@
             <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
         </div>
     </div>
-
-    <div class="success-modal" id="successModal">
-        <div class="success-icon">✅</div>
-        <div class="success-message">Order Placed Successfully!</div>
-        <div class="success-submessage">Your order details have been sent to your email</div>
-        <p style="margin: 15px 0; color: #666;">Your order has been confirmed and will be delivered soon.</p>
+<div class="success-modal" id="successModal">
+    <div class="success-icon">✅</div>
+    <div class="success-message">Order Placed Successfully!</div>
+    <div class="success-submessage">Your order details have been sent to your email</div>
+    <p style="margin: 15px 0; color: #666;">Your order has been confirmed and will be delivered soon.</p>
+    <div class="button-group">
         <button class="track-order-btn" onclick="trackOrder()">Track Order</button>
         <button class="close-success-btn" onclick="closeSuccessModal()">Continue Shopping</button>
     </div>
-
+</div>
     <div class="order-details-modal" id="orderDetailsModal">
         <span class="close-popup" onclick="closeOrderDetailsModal()">&times;</span>
         <div id="orderDetailsList"></div>
