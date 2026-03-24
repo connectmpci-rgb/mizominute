@@ -1134,7 +1134,7 @@
                 opacity: 1;
             }
         }
-        /* =============================================== */
+  /* =============================================== */
 /* ✅ EMAIL TOAST NOTIFICATION STYLES */
 /* =============================================== */
 .email-toast {
@@ -1166,21 +1166,22 @@
     }
 }
 
-/* Style success modal buttons like Place Order button */
+/* Style success modal buttons - smaller and inline */
 .track-order-btn, 
 .close-success-btn {
     background: linear-gradient(135deg, #ff6f2f 0%, #ff5500 100%);
     color: white;
     border: none;
-    padding: 14px 24px;
+    padding: 8px 20px;        /* Smaller padding */
     border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;        /* Slightly smaller text */
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 15px rgba(255, 111, 47, 0.3);
-    margin: 10px;
-    min-width: 180px;
+    margin: 5px;              /* Reduced margin */
+    display: inline-block;    /* Ensure they are inline */
+    min-width: 140px;         /* Smaller min-width (or remove) */
 }
 
 .track-order-btn:hover, 
@@ -1189,13 +1190,20 @@
     box-shadow: 0 8px 25px rgba(255, 111, 47, 0.4);
 }
 
-/* Optional: Make them side by side */
+/* Make the buttons appear side by side */
+.success-modal {
+    text-align: center;
+}
 .success-modal .success-icon {
     font-size: 3rem;
 }
-
-.success-modal {
-    text-align: center;
+.success-modal .success-message {
+    margin-bottom: 10px;
+}
+/* Optional: if you want them side by side with a small gap */
+.success-modal .track-order-btn,
+.success-modal .close-success-btn {
+    margin: 5px 8px;
 }
     </style>
 </head>
